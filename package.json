@@ -1,0 +1,22 @@
+{
+  "name": "node-anticipate",
+  "version": "0.0.1",
+  "description": "retries asynchronous functions until they succeed",
+  "main": "src/anticipate.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha spec/anticipate_spec.pogo"
+  },
+  "repository": "https://github.com/featurist/node-anticipate.git",
+  "author": "@joshski",
+  "license": "BSD",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "should": "~1.2.1",
+    "pogo": "~0.2.1",
+    "mocha": "~1.7.4"
+  }
+}
