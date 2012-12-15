@@ -26,6 +26,7 @@ describe 'anticipate'
         
         anticipate.trying (block) every 0.1 seconds.succeeds within 3 tries @(result)
             result.should.equal "finally!"
+            attempts.should.equal 3
             0.2 seconds should have elapsed
             done ()
         .otherwise (done)
