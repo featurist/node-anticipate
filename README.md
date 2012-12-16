@@ -10,23 +10,23 @@ npm install anticipate
     
     anticipate = require 'anticipate'
     
-    anticipate.trying @(callback) every 0.1 seconds
-        something flaky with (callback)
-    .succeeds within 10 tries @(result)
+    anticipate.trying @(callback)
+        something unreliable (callback)
+    every 0.1 seconds for 3 tries @(result)
         it worked (result)
-    .otherwise @(error)
+    else @(error)
         oh noes (error)
 
 #### Example  (JavaScript)
     
     anticipate = require('anticipate');
     
-    anticipate.tryingEverySeconds(function(callback) {
-        somethingFlakyWith(callback);
-    }, 0.1).succeedsWithinTries(10, function(result) {
-        itWorked(result);
-    }).otherwise(function(error) {
-        ohNoes(error);
+    anticipate.tryingEverySecondsForTriesElse(function(callback) {
+        somethingUnreliable(callback);
+    }, 0.1, 3, function(result) {
+        return itWorked(result);
+    }, function(error) {
+        return ohNoes(error);
     });
 
 #### License

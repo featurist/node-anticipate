@@ -24,12 +24,12 @@ describe 'anticipate'
             else
                 callback "not yet..."
         
-        anticipate.trying (block) every 0.1 seconds.succeeds within 3 tries @(result)
+        anticipate.trying (block) every 0.1 seconds for 3 tries @(result)
             result.should.equal "finally!"
             attempts.should.equal 3
             0.2 seconds should have elapsed
             done ()
-        .otherwise (done)
+        else (done)
 
     it 'calls the error callback if the block never stops yielding errors' @(done)        
         attempts = 0
@@ -37,9 +37,9 @@ describe 'anticipate'
             attempts := attempts + 1
             callback "not stopping..."
         
-        anticipate.trying (block) every 0.1 seconds.succeeds within 3 tries @(result)
+        anticipate.trying (block) every 0.1 seconds for 3 tries @(result)
             done "this shouldn't happen"
-        .otherwise @(err)
+        else @(err)
             err.should.equal "not stopping..."
             attempts.should.equal 3
             0.2 seconds should have elapsed
@@ -51,9 +51,9 @@ describe 'anticipate'
             attempts := attempts + 1
             throw "oops"
         
-        anticipate.trying (block) every 0.1 seconds.succeeds within 3 tries @(result)
+        anticipate.trying (block) every 0.1 seconds for 3 tries @(result)
             done "this shouldn't happen"
-        .otherwise @(err)
+        else @(err)
             err.should.equal "oops"
             attempts.should.equal 3
             0.2 seconds should have elapsed

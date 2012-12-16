@@ -1,11 +1,5 @@
-exports.trying (block) every (interval) seconds =
-    {
-        succeeds within (tries) tries (success) =
-            {
-                otherwise (error) =
-                    anticipate (block, tries, interval, success, error)
-            }
-    }
+exports.trying (block) every (interval) seconds for (tries) tries (on success) else (on error) =
+    anticipate (block, tries, interval, on success, on error)
 
 anticipate (block, tries, interval, on success, on error) =
     attempt (error, result) =

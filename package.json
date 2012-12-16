@@ -1,6 +1,6 @@
 {
   "name": "anticipate",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "retries asynchronous functions until they succeed",
   "main": "src/anticipate.js",
   "directories": {

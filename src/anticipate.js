@@ -1,19 +1,9 @@
 (function() {
     var self = this;
     var anticipate;
-    exports.tryingEverySeconds = function(block, interval) {
+    exports.tryingEverySecondsForTriesElse = function(block, interval, tries, onSuccess, onError) {
         var self = this;
-        return {
-            succeedsWithinTries: function(tries, success) {
-                var self = this;
-                return {
-                    otherwise: function(error) {
-                        var self = this;
-                        return anticipate(block, tries, interval, success, error);
-                    }
-                };
-            }
-        };
+        return anticipate(block, tries, interval, onSuccess, onError);
     };
     anticipate = function(block, tries, interval, onSuccess, onError) {
         var attempt, fail;
