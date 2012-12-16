@@ -24,9 +24,9 @@ npm install anticipate
     anticipate.tryingEverySecondsForTriesElse(function(callback) {
         somethingUnreliable(callback);
     }, 0.1, 3, function(result) {
-        return itWorked(result);
+        itWorked(result);
     }, function(error) {
-        return ohNoes(error);
+        ohNoes(error);
     });
 
 #### License
